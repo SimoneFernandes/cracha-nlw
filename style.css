@@ -1,0 +1,114 @@
+/*seletor universal: {}, aplicar as propriedades que colocar aqui para todos os elementos q ele encontrar na página */
+*{
+  margin: 0;
+}
+
+html,
+body{
+  /*Ao colocar a cor aqui temos que declara-la dentro da main ou dentro do container, nesse caso declarei dentro do container*/
+/*para declarar uma variavel usamos -- ex: --gray*/
+--black:hsl(240, 6%, 13%);
+/*hsl=> (hil) h é a cor, s (saturation) é a saturação da cor, l(ligthner) é a luz da cor*/
+
+--gray: hsl(240, 9%, 89%);
+  
+/* colocamos o link da font no html pra depois colocar essas especificações da font-family e o webkit aqui*/
+  height: 100%;
+  font-family: 'Roboto', sans-serif; /*procura 1° roboto se não achar pega uma q não tenha serif*/
+  -webkit-font-smoothing: antialiased;
+/*so funcionará em navegadores q tenha o webkit como chrome, safari... p/ deixar a fonte mais suave*/
+}
+
+body{
+  /*Nesse caso específico com o grid habilitado aqui podemos alinhar com o place-items: center*, se não usasse nao conseguiria alinhar ao centro*/
+  display: grid;
+  place-items: center;
+/*background: lightcoral; tirando daqui e colocando na main mais embaixo com outro background */
+
+}
+
+main{
+  background: url(images/background.svg) ;
+  /* aqui vamos colocar o background que tá salvo na pasta images da pasta NLW crachá*/
+  width: 375px; /* essa altura e largura são do projeto q está no figma*/
+  height: 812px;
+}
+
+.container{
+  max-width: 205px; /* na pag do prof é 250px mas aqui para ficar o selo e o avatar um debaixo do outro fui diminuindo até dar certo no 205px*/
+  margin-left: auto ;
+  margin-right: auto;
+  text-align: center;
+
+  color: var(--gray);
+}
+
+.avatar{
+  width: 10 rem; 
+  /*rem tem relação com o pixel padrão da página e a fonte padrão da pág tem 16pixel, ai 16 pixel é referente a 1rem da pág */
+  margin: 11.5rem auto 0; /* 184/16= 11.5 esse 184 foi retirado do espacamento do avatar até o limite superior do background na pagina oficial com mark brito.
+  antes de aplicar essa margim, o selo está em 1° depois o avata,seguida nome assim por diante, so q qd colocamos a margem, esse espaçamento é do selo até o limite superior do background, e teremos q colocar o selo por cima do avatar para só então ficar a margem de 11.5rem do avatar até o limite superior do background */
+  /*na margin se colocamos 4 valores então preenchera tudo em volta da imagem e vai no sentido horario: top, right, botton e left.
+  3 variaveis vai valores top, botton e laterais
+  2 variaveis vai valores top e botton e depois pras laterais ou seja em cima e embaixo pra depois esquerda e direita.*/
+position: relative;
+}
+
+.avatar span{
+  /* com o position: absolute estamos colocando o selo por cima do avatar, criando assim uma camada por cima da outra, mas so desse jeito ele fica absoluto na pagina inteira, vamos no .avatar do cod de cima e vamos colocar*/
+position: absolute;
+top: -15px; /* aqui é -15 para subir o selo um pouco acima do avatar. o 15pixel foi tirado do projeto inicial com mark brito, so q qd fazemo isso ele pega o top da pagina e não o top do avatar por causa do absolute q está para a pagina toda, e pra isso temos q ir no avatar de cima e colocar o position: relative para dar o limite a imagem avatar e por consequente dando o limite para a position absolute */
+z-index: 1; /*para o selo voltar a ficar por cima do avatar*/
+}
+
+.avatar >img{
+  /* com esse simbolo > vai pegar apenas a imagem do 1° plano(camada + abaixo) para aplicar as propriedades abaixo*/
+  width: 10rem;
+  height: 13rem;/*aqui seria 11.5 mas a minha cabeça ficou muito pra cima e com 13 desceu e ficou bem melhor*/
+  /*com essas 2 medidas de altura e largura deixará a foto esticada, perdendo um pouco da sua proporção correta, então usaremos object-fit: cover para adaptar/cobrir a imagem dentro da largura e altura q foi definida*/
+ object-fit: cover;
+ /*Vamos usar o clip-path: polygon e pra isso vamos pegar as medidas no site clippy-css, achar um q se assemelha mais e vamos dimensionando os pontos para confeccionar o hexagono e ai copiamos as medidas q aparecerá mais abaixo da figura e colamos nos parenteses, como abaixo. Com isso o selo ficou por baixo do avatar, então vamos no .avatar span e colocamos o z-index ( q é o eixo de profundidade), z-index:1 para trazer para o plano superior(acima do avatar). */
+ clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1{
+  font-size: 1.5rem;
+  /*alinhando os espacos entre fonte e o avatar, pegamos o 24px q fica entre o avatar e o nome(q ta no projeto inicial) e dividi por 16= 1.5rem */
+  margin-top: 1.5rem;
+}
+
+a{
+  color: var(--gray);
+  text-decoration: none;
+
+  /*alinhando o espaço entre github e o nome q é 4px do proj inicial divido por 16=0.25rem*/
+  margin-top: 0.25rem;
+
+  display: flex;/*pra liberar o gap q vai dar distancia do simbolo do github para o nome de link q estão na mesma linha*/
+  gap: 0.75rem; /*distancia 12px/16rem = 0.75rem */
+  justify-content: center;
+  align-items: center;
+  /* com o align-items: center vai garantir ainda a mais um alinhamento com o eixo X e Y */
+}
+
+p{
+  margin-top: 2rem ; /*32px dividido por 16rem = 2rem*/
+}
+
+ul{
+  margin-top: 4rem; /*64px divido por 16rem = 4rem*/
+
+  list-style: none; /*para tirar as bolinhas ao lado de cada icone das rede sociais*/
+
+  padding: 0; /*para retirar o preenchimento entre cada icone das redes sociais*/
+
+  display: flex; /* q faz os icones ficarem um ao lado do outro na horizontal, q antes estavam na vertical(eixo x ou exo main) */
+
+  gap: 0.5rem; /* paa dar o espaço entre os ícones das redes sociais, 8px divido por 16rem = 0.5*/
+
+  justify-content: center;
+  /* então este justify-content é liberado para suar no display flex e ou grid, poderia utilizar o text-align, não por este se refere somente a texto e como usamos o display-flex ai so cabe mesmo o justify-content*/
+
+  /*flex-direction: column, este pode ser usado para direcionar as redes sociais para vertical, eixo Y*/
+}
+

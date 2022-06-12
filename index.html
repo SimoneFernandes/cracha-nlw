@@ -1,0 +1,90 @@
+<!--comentarios-->
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passaporte Do While</title>
+
+    <!-- link para conectar com style.css-->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- link das fontes que pegamos no fonts.goolge.com-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <!--no iniciozinho era content/conteúdo mas agora trocou para container/caixa e ficará dentro da main-->
+        <div class="avatar">
+          <span>
+            <!--esse span foi utilizado como "caixa" para ajudar a separa e colocar por cima do avatar lá no style-->
+            <img src="images/selo.svg" alt="selo Rocketseat" />
+          </span>
+
+          <img src="images/avatar3.svg" alt="Foto pessoal" id="userAvatar" />
+        </div>
+
+        <h1 id="userName">Mayk Brito</h1>
+
+        <a id="userLink" href="http://github.com/maykbrito" target="_blank"
+          ><!--inicialmente usei o meu github mas depois alterei para o do Mayk Brito para que a API do github troque essas informaçoes pelas minhas inclusive a Bio-->
+          <img src="images/github 2.svg" alt="ícone do github" />
+          <span id="userLogin">maykbrito</span>
+          <!--tivemos q colocar essa caixa de span para a api pegar o nome do usuario com o icone do github-->
+        </a>
+
+        <p id="userBio">Aprendendo a codar</p>
+
+        <ul id="socialLinks">
+          <!--usando uma id na ul para usa-lo no script lá embaixo (referente a aula de javascript)-->
+          <li class="instagram">
+            <a href="https://instagram.com/maykbrito" target="_blank">
+              <!-- <a 
+            href="https://instagram.com/simongat.fer.souza" target="_blank"> -->
+              <img src="images/instagram.svg" alt="ícone do instagram" />
+            </a>
+          </li>
+          <li class="facebook">
+            <a href="https://facebook.com//maykbrito" target="_blank">
+              <!--<a
+             href="https://facebook.com//simone.fernandesdesouza.5"
+              target="_blank"
+            > -->
+              <img src="images/facebook.svg" alt="ícone do facebook" />
+            </a>
+          </li>
+
+          <!--<li class="linkedin">
+            <a href="https://www.linkedin.com/in/maykbrito" target="_blank">
+              <a
+             href="https://linkedin.com/in/simone-fernandes-de-souza-52918273"
+              target="_blank"
+            > 
+              <img src="images/youtube.svg" alt="ícone do linkedin" />
+            </a>
+          </li> -->
+
+          <li class="twitter">
+            <a href="https://twitter.com/maykbrito" target="_blank">
+              <!--
+              <a
+              href="https://twitter.com/Simone_FerSouza"
+            target ="_blank">
+            -->
+              <img src="images/twitter.svg" alt="ícone do twitter" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <!--Aqui linkamos o html com o javascript-->
+  </body>
+</html>
